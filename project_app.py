@@ -9,6 +9,8 @@ from movie import views as movie_view
 
 def create_app():
     new_app = Flask(__name__)
+    new_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
     CORS(new_app)
     new_app.config.update(get_config())
     db.init_app(new_app)
